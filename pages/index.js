@@ -1,3 +1,10 @@
+import { Fragment } from "react";
+
 export default function HomePage() {
-    return <h1>DUMMY TEXT</h1>
+    return (
+        <Fragment>
+            <Hero />
+            <FeaturedPosts />
+        </Fragment>
+    )
 };
