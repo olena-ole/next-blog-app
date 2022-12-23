@@ -1,3 +1,36 @@
+import AllPosts from "../../components/posts/all-posts"
+
+const DUMMY_POSTS = [
+    { 
+        slug: 'getting-started-with-nextjs',
+        title:'Gettind Started with NextJS',
+        image:'getting-started-nextjs.png',
+        excerpt: 'NextJS is a React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.',
+        date: '2022-02-10'
+    },
+    { 
+        slug: 'getting-started-with-nextjs2',
+        title:'Gettind Started with NextJS',
+        image:'getting-started-nextjs.png',
+        excerpt: 'NextJS is a React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.',
+        date: '2022-02-10'
+    },
+    { 
+        slug: 'getting-started-with-nextjs3',
+        title:'Gettind Started with NextJS',
+        image:'getting-started-nextjs.png',
+        excerpt: 'NextJS is a React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.',
+        date: '2022-02-10'
+    },
+    { 
+        slug: 'getting-started-with-nextjs4',
+        title:'Gettind Started with NextJS',
+        image:'getting-started-nextjs.png',
+        excerpt: 'NextJS is a React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.',
+        date: '2022-02-10'
+    }
+]
+
 export default function AllPostsPage() {
-    return <h1>DUMMY TEXT</h1>
+    return <AllPosts posts={DUMMY_POSTS}/>
 };
