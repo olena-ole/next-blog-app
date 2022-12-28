@@ -1,32 +1,19 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import classes from './contact-form.module.css';
 
 export default function ContactForm() {
-    const emailInput = useRef(),
-        nameInput = useRef(),
-        textareaInput = useRef();
-
-
+    const [enteredName, setEnteredName] = useState('');
+    const [enteredEmail, setEnteredEmail] = useState('');
+    const [enteredMessage, setEnteredMessage] = useState('');
+    
     function sendMessageHandler(e) {
         e.preventDefault();
 
-        const email = emailInput.current.value,
-            name = nameInput.current.value,
-            message = textareaInput.current.value;
-
-        if (
-            !email || 
-            !email.includes('@') ||
-            !name || 
-            name.trim() === '' ||
-            !message || 
-            message.trim() === ''
-        ) {
-            console.log('Invalid input');
-            return;
-        }
-
-        const newMessage = { email, name, message };
+        const newMessage = { 
+            email: enteredEmail,
+            name: enteredName, 
+            message: enteredMessage 
+        };
 
         fetch('/api/contact', {
             method: 'POST',
@@ -34,10 +21,8 @@ export default function ContactForm() {
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-    }
+        });
+    };
 
     return (
         <section className={classes.contact}>
@@ -47,17 +32,35 @@ export default function ContactForm() {
                 <div className={classes.controls}>
                     <div className={classes.control}>
                         <label htmlFor="email">Your Email</label>
-                        <input type="email" id="email" required ref={emailInput}/>
+                        <input 
+                            required 
+                            type="email" 
+                            id="email" 
+                            value={enteredEmail}
+                            onChange={event => setEnteredEmail(event.target.value)}
+                        />
                     </div>
                     <div className={classes.control}>
                         <label htmlFor="name">Your Name</label>
-                        <input type="text" id="name" required ref={nameInput}/>
+                        <input 
+                            required
+                            type="text" 
+                            id="name" 
+                            value={enteredName}
+                            onChange={event => setEnteredName(event.target.value)}
+                        />
                     </div>
                 </div>
 
                 <div className={classes.control}>
                     <label htmlFor="message">Your Message</label>
-                    <textarea id="name" rows={5} ref={textareaInput}/>
+                    <textarea 
+                        required
+                        id="name" 
+                        rows={5} 
+                        value={enteredMessage}
+                        onChange={event => setEnteredMessage(event.target.value)}
+                    />
                 </div>
 
                 <div className={classes.actions}>
@@ -65,5 +68,5 @@ export default function ContactForm() {
                 </div>
             </form>
         </section>
-    )
-}
+    );
+};
