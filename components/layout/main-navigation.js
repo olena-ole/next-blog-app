@@ -20,5 +20,5 @@ export default function MainNavigtion() {
                 </ul>
             </nav>
         </header>
-    )
+    );
 };

@@ -1,6 +1,6 @@
-import classes from './posts-grid.module.css'
+import classes from './posts-grid.module.css';
 
-import PostItem from './post-item'
+import PostItem from './post-item';
 
 export default function PostsGrid(props) {
     const { posts } = props;

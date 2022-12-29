@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         ) {
             res.status(422).json({ message: 'Invalid input.'});
             return;
-        }
+        };
 
         const newMessage = { email, name, message };
 
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         } catch (error) {
             res.status(500).json({ message: 'Could not connect to database' });
             return;
-        }
+        };
 
         const db = client.db();
         
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
             client.close();
             res.status(500).json({ message: 'Storing message failed!' });
             return;
-        }
+        };
 
         client.close();
 

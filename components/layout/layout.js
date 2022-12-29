@@ -9,5 +9,5 @@ export default function Layout(props) {
                 {props.children}
             </main>
         </Fragment>
-    )
-}
+    );
+};

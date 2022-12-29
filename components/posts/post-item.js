@@ -1,4 +1,4 @@
-import classes from './post-item.module.css'
+import classes from './post-item.module.css';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,7 +13,7 @@ export default function PostItem(props) {
     });
 
     const imagePath = `/images/posts/${slug}/${image}`;
-    const linkPath = `/posts/${slug}`
+    const linkPath = `/posts/${slug}`;
 
     return (
         <li className={classes.post}>
@@ -36,5 +36,5 @@ export default function PostItem(props) {
                 </a>
             </Link>
         </li>
-    )
-}
+    );
+};
