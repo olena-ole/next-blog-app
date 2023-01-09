@@ -14,7 +14,7 @@ export default function Hero() {
             </div>
             <h1>HI, I'm Olena</h1>
             <p>
-                I blog about web development - especially about frontend frameworks Next.js or React library
+                I blog about web development - especially about frontend frameworks like Next.js or React library
             </p>
         </section>
     );
